@@ -1,0 +1,712 @@
+# Transmitter Desk: all guides
+
+# FrSky ETHOS: what the radio OS does, which transmitters run it and how to keep it current
+
+URL: https://ethos-suite.github.io/index.html
+Updated: 2026-11-07
+
+FrSky ETHOS is the operating system on FrSky's TANDEM, TWIN and ISRM Horus transmitters. This manual explains what it does, where the desktop Suite fits in, and how to update and back up a radio using FrSky's own guides.
+
+## Key facts
+
+- Vendor: FrSky
+- Radios: TANDEM, TWIN, Horus X10 and X12 ISRM
+- Model types: Airplane, glider, helicopter, multirotor
+- Channels: 24 per module, two modules at once
+- Desktop app: FrSky Suite 2.0.2, Windows and macOS
+- Price: None published
+- Checked: 2026-11-07
+
+ETHOS is FrSky's own operating system for its color screen transmitters: the TANDEM and TWIN series and the Horus X10 and X12 with the ISRM module. It handles model setup for airplanes, gliders, helicopters and multirotors, plus telemetry, voice call outs and Lua scripts. FrSky publishes no price for it; the firmware, the FrSky Suite desktop app and the manual are downloads on ethos.frsky-rc.com.
+
+## What FrSky ETHOS is
+
+FrSky ETHOS is the firmware that runs the transmitter itself: the screens you set a model up in, the mixers, the telemetry pages and the sounds the radio plays when a sensor crosses a limit. FrSky builds it for its own radios and does not sell it as a separate product. The official site at ethos.frsky-rc.com collects the firmware, the desktop Suite, the user manual and the update guides. Release notes and bug reports live in a GitHub repository that FrSky runs.
+The vendor groups the features into a few areas. Model setup has separate mixer templates for airplanes, gliders, helicopters and multirotors, with custom mixes on top. Telemetry and audio call outs come from FrSky receivers and sensors. Lua scripts add tools and widgets. Menus work by touch, with the keys or with the scroll wheel, and a simulator lets you try a setup on a computer. On the RF side, the internal module and a module in the external bay can run at the same time with 24 channels each.
+Because the OS ships on the radio, most owners never install it from scratch. What they do is keep it current, keep RF module and receiver firmware matched to it, and keep a copy of their models on a computer. The rest of this manual covers those jobs.
+
+## Pages in this manual
+
+If you are deciding whether this system suits you, start with the [ETHOS review](review.html). If you are still choosing hardware, the [list of radios that run ETHOS](supported-radios.html) shows which FrSky transmitters FrSky names in its FAQ and release notes.
+- Review: What the OS does well, where it falls short, and a score built on FrSky's documentation.
+- Download: Which FrSky Suite build fits your computer, installer sizes and the first steps after install.
+- Update firmware: The Suite procedure: back up, write outdated components, flash the RF module, then the receivers.
+- Back up models: Model manager in the Suite, or a manual copy of the models folder and radio.bin.
+- Supported radios: Every transmitter FrSky names for the OS, and what the Suite needs on your computer.
+- Troubleshooting: Blocked downloads, stalled updates, radios the Suite cannot see, and failed flashes.
+- ETHOS vs EdgeTX: Who builds each one, which FrSky radios each runs on, and how to choose.
+
+## Current versions at a glance
+
+FrSky now uses year based version numbers for the firmware. The 1.6 line that the manual and update guide describe has given way to the 26.x line in the GitHub releases. On 7 November 2026 the state was as follows.
+| Component | Version | Note |
+|---|---|---|
+| ETHOS firmware | 26.1.2 | Latest GitHub release, dated 10 September |
+| Next firmware | 26.2.0 RC9 | Release candidate, dated 6 November |
+| FrSky Suite | 2.0.2 | Windows and macOS, dated 30 October |
+| ETHOS Suite | 1.6.3 | Older generation, still listed on the site |
+| User manual | 1.6.3 | PDF, English plus six other languages |
+| Bootloader tool | DfuSe Demo 3.0.6 | Windows tool listed on the site |
+The [download page](download.html) explains which Suite file fits your computer and what to check before you plug the radio in.
+
+## Keeping a radio current
+
+FrSky's update guide is built around the desktop Suite. You connect the radio with a USB C data cable, choose the Suite connection mode on the radio, and the Radio Information tab lists what is out of date. The guide insists on one step before anything is written: make a backup of your models in the Model manager tab.
+The OS, the internal RF module and the receivers are three separate firmware layers. FrSky calls RF module and receiver firmware matched, so when one moves, check the other. Our guide on how to [update ETHOS firmware step by step](update-firmware.html) walks through all three in the order the vendor gives.
+
+## ETHOS or EdgeTX
+
+The other firmware name you will meet is EdgeTX, an open source project backed by RadioMaster, Jumper, FlySky and HelloRadioSky. It lists older FrSky radios such as the X9D, X10 and X12S as community supported only, and does not list the X20, X18 or X14 families at all. The [ETHOS vs EdgeTX comparison](ethos-vs-edgetx.html) sets out where the two overlap and where only one of them is an option.
+
+> One radio OS from the radio maker.
+Update it with the Suite, and back it up before every flash.
+
+
+## FAQ
+
+**Is FrSky ETHOS free?**
+
+FrSky publishes no price for ETHOS. The firmware, FrSky Suite and the user manual are offered as downloads on ethos.frsky-rc.com, and the OS comes installed on the radios that use it. The site does not state separate licence terms.
+
+**Which radios can run ETHOS?**
+
+FrSky's FAQ names the TANDEM and TWIN series and the Horus X10 and X12 series with the built in ISRM RF module. Recent release notes also name models such as the X20 PRO, X18RS, X14, X14RS and V15. Radios from other brands are not listed.
+
+**What is FrSky Suite?**
+
+FrSky Suite is the desktop app for Windows and macOS that updates the radio firmware and RF module, backs up models, installs Lua scripts and downloads receiver firmware. Version 2.0.2 also has a simulator, a log viewer and a DFU flasher. It replaces the older ETHOS Suite 1.6.3, which the site still lists.
+
+**Can ETHOS run on a RadioMaster or Jumper radio?**
+
+No. FrSky's pages list only FrSky transmitters. RadioMaster and Jumper are partners of the EdgeTX project, which is the firmware those radios use.
+
+**Is there an ETHOS simulator?**
+
+Yes. FrSky publishes simulator builds under a simulators tag in its GitHub releases, and FrSky Suite 2.0.2 includes a radio simulator. The wiki describes recording key and touch macros and running Lua scripts from the command line.
+
+**Where do I report an ETHOS bug?**
+
+FrSky collects bug reports as issues in its ETHOS Feedback Community repository on GitHub. It asks you to update first, search existing issues, and include the firmware version and steps to reproduce. The official site also has a support ticket system.
+
+## Sources
+
+- [ETHOS release notes on GitHub](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases)
+- [ETHOS Feedback Community repository README](https://github.com/FrSkyRC/ETHOS-Feedback-Community)
+
+
+---
+
+# ETHOS Suite download: FrSky Suite 2.0.2 and ETHOS firmware for Windows and Mac
+
+URL: https://ethos-suite.github.io/download.html
+Updated: 2026-11-07
+
+The ETHOS Suite download is now FrSky Suite 2.0.2, a desktop app for Windows and macOS that updates the radio and backs up models. This page lists the builds, their sizes, and the first steps after install.
+
+## Key facts
+
+- Current app: FrSky Suite 2.0.2 (30 October)
+- Windows: 142 MB installer
+- macOS: 199 MB Intel, 202 MB Apple silicon
+- Firmware: 26.1.2 latest release
+- Price: None published
+- Checked: 2026-11-07
+
+Download FrSky Suite from FrSky's official ETHOS site or its GitHub releases: version 2.0.2 comes as a 142 MB Windows installer and 199 MB or 202 MB macOS disk images for Intel and Apple silicon. The Suite then fetches ETHOS firmware, RF module files and Lua scripts for your radio, so you rarely need to download firmware files by hand. FrSky publishes no price.
+
+## What you get from the ETHOS Suite download
+
+The ETHOS Suite download gives you the desktop tool that FrSky's update guide is built around. With it you can see what is out of date on the radio, write new ETHOS firmware, flash the internal RF module, back up models, install Lua scripts and fetch firmware for receivers and sensors. FrSky Suite 2.0.2 adds a radio simulator, a log viewer with two Y axes and per channel minimum, maximum and average, a DFU flasher and a searchable FrSky product list with favourites.
+The official site lists two generations side by side: ETHOS Suite 1.6.3 for Windows and macOS, and the newer FrSky Suite 2.x for Windows, macOS on Intel and macOS on Apple silicon. The 2.0.2 release on GitHub, dated 30 October, is the most recent. The firmware itself is published as GitHub releases, and the Suite reads from the same place.
+
+## Files and sizes
+
+FrSky does not publish minimum Windows or macOS versions for the Suite, nor a separate system requirements page. Our page on [radios and requirements](supported-radios.html) collects what the vendor does say about computers, cables and storage.
+| File | Platform | Size |
+|---|---|---|
+| FrSky Suite 2.0.2 .exe | Windows | 142 MB |
+| FrSky Suite 2.0.2 x64 .dmg | macOS on Intel | 199 MB |
+| FrSky Suite 2.0.2 arm64 .dmg | macOS on Apple silicon | 202 MB |
+| ETHOS Suite 1.6.3 | Windows, macOS | Size not published |
+| Bootloader tool (DfuSe Demo 3.0.6) | Windows | Size not published |
+| ETHOS User Manual 1.6.3 | PDF | Size not published |
+
+## Firmware versions and branches
+
+The newest ETHOS release on GitHub on 7 November 2026 was 26.1.2, dated 10 September, with fixes for bootloader flashing, Bluetooth audio, FBUS telemetry and NAND errors on the X18RS, X14 and XERS. The next version, 26.2.0, was at its ninth release candidate, dated 6 November. FrSky labels these builds as being for early adopters.
+Inside the Suite you choose a release branch and a version from drop down lists. FrSky's update guide tells you to pick the Stable branch and the latest version in it. Release candidates are for people willing to report bugs.
+
+## Install in five steps
+
+1. Download the right build: Use the button on this page to reach ethos.frsky-rc.com and pick the Windows installer, or the macOS image for Intel (x64) or Apple silicon (arm64).
+2. Allow the file: If the browser blocks it, choose Keep and then Keep anyway. If Windows Defender stops the installer, click More info and then Run anyway. On a Mac, allow the app under System Settings, Security.
+3. Install and launch: Run the installer, then open the Suite. When a newer version exists, a pop up offers Go To Update.
+4. Connect the radio: Power on the transmitter and connect it with a USB C data cable. In the USB mode window on the radio, choose Ethos Suite. You can close any drive windows that open on the computer.
+5. Check and back up: Open Radio Information to see what is out of date, then make a backup in Model manager before writing anything.
+
+## What to do after install
+
+Do the backup first: our page on how to [back up ETHOS models](backup-models.html) covers the Model manager and the manual copy. Then follow the vendor order to [update ETHOS firmware](update-firmware.html): the OS, then the RF module, then the receivers.
+If the download is blocked, the update prompt never appears or the radio does not show up, the [ETHOS troubleshooting page](troubleshooting.html) lists the fixes from FrSky's guide.
+
+
+## FAQ
+
+**Is the ETHOS Suite download free?**
+
+FrSky shows no price for ETHOS Suite or FrSky Suite. Both are offered as downloads on ethos.frsky-rc.com and in FrSky's GitHub releases. The site states no licence terms.
+
+**Is ETHOS Suite the same as FrSky Suite?**
+
+The official site lists ETHOS Suite 1.6.3 and FrSky Suite 2.x as separate downloads. FrSky Suite is the newer generation, with a simulator, log viewer and DFU flasher added. FrSky's update guide was written for ETHOS Suite, so some menu names may differ in 2.x.
+
+**Which Mac file should I download?**
+
+FrSky Suite 2.0.2 ships two macOS images: x64 for Intel Macs at 199 MB and arm64 for Apple silicon Macs at 202 MB. Pick the one that matches the chip shown in About This Mac.
+
+**Is there a Linux version of FrSky Suite?**
+
+The official site lists Suite builds for Windows and macOS only. FrSky's simulator wiki mentions running the simulator from a Windows or Linux console, but no Linux Suite installer is listed.
+
+**Do I need to download ETHOS firmware files by hand?**
+
+Usually not. The Suite reads the available versions and writes outdated components to the radio for you. The manual route, copying firmware.bin to the radio in bootloader mode, exists for cases where the Suite cannot be used.
+
+**Why does Windows warn me about the installer?**
+
+FrSky's guide notes that the browser and Windows Defender SmartScreen may block the file. The guide's fix is to choose Keep, then Keep anyway, and More info, then Run anyway, for a file downloaded from FrSky's own site.
+
+## Sources
+
+- [FrSky Comprehensive Firmware Update Guide (PDF)](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)
+- [ETHOS and FrSky Suite release notes on GitHub](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases)
+- [ETHOS 26.1.2 release notes](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases/latest)
+
+
+---
+
+# FrSky ETHOS review: a capable radio OS that only runs on FrSky hardware
+
+URL: https://ethos-suite.github.io/review.html
+Updated: 2026-11-07
+
+This FrSky ETHOS review weighs what the vendor documents: four model type templates, two RF modules at 24 channels each, Lua, a desktop Suite that automates updates, and a firmware that you only get with a FrSky radio.
+
+## Key facts
+
+- Score: 7.9 / 10
+- Model types: Airplane, glider, helicopter, multirotor
+- RF: Internal and external module, 24 channels each
+- Desktop app: FrSky Suite 2.0.2
+- Hardware: FrSky radios only
+- Price: None published
+- Checked: 2026-11-07
+
+ETHOS scores 7.9 out of 10 on what FrSky documents. It covers airplanes, gliders, helicopters and multirotors, runs two RF modules at 24 channels each, supports Lua, and comes with a desktop Suite that handles firmware, RF module, receiver and model backup jobs. Its limits are that it runs only on FrSky radios, its manual and FAQ lag the firmware, and FrSky publishes no licence terms.
+
+## Verdict (7.9/10)
+
+If you own or plan to buy a TANDEM, TWIN or ISRM Horus radio, ETHOS is the system built for that hardware, and the Suite turns updates into a guided process. The score loses points for things the vendor controls: documentation that still describes version 1.6 while releases are on 26.x, a FAQ page that is mostly placeholders, and a hardware list you have to piece together from release notes.
+
+## What this FrSky ETHOS review covers
+
+This FrSky ETHOS review is built on FrSky's own material: the official site, the 1.6.x update guide, the GitHub wiki and the release notes up to 26.2.0 release candidate 9. It does not report hands on flight tests. The score reflects what the vendor documents and how clearly it documents it.
+ETHOS is the OS inside FrSky's color screen transmitters. Its job is the same as any radio firmware: hold model setups, mix stick inputs into channels, show telemetry and warn you about it, and talk to the RF modules. What sets it apart is that it comes from the company that makes the radio, the receivers and the RF protocols.
+
+## Features FrSky documents
+
+- Model types: Separate templates for airplanes, gliders, helicopters and multirotors, with category specific mixers and custom mixes.
+- Two RF modules: Internal and external modules can run at the same time, each with 24 channels.
+- Telemetry and audio: Sensor values, audio call outs and alerts, with sensors that turn red if the receiver link is lost (26.1.2).
+- Lua: Scripts for tools and widgets; 26.2.0 candidates add calls to register sensors, wizards and smart glasses.
+- Controls: Touch screen, keys or scroll wheel for every menu.
+- Simulator: Desktop simulator builds plus a simulator inside FrSky Suite 2.0.2.
+
+## FrSky Suite and updates
+
+The desktop Suite is the strongest part of the package. Radio Information shows what is out of date; the Ethos tab writes outdated components; the RF Module tab flashes the internal module; Lua library installs scripts such as StabilizerConfig for ARCHER Plus, TD and TW stabilized receivers; and Download center fetches receiver firmware. Receivers can then be flashed over the air or through the S.Port from the radio.
+Release pace is quick. The 26.2.0 line went from its first release candidate on 16 October to the ninth on 6 November, with changes such as faster startup, a Remote Control USB mode and 24 channel trainer on all connections. The flip side is that the newest builds carry an early adopters label, so the Stable branch in the Suite is the one to pick. When you are ready, the [FrSky Suite download page](download.html) lists the current files, and the guide on how to [update the firmware](update-firmware.html) covers the order of steps.
+
+## Limits
+
+ETHOS runs only on FrSky radios. The FAQ names the TANDEM and TWIN series and the Horus X10 and X12 with ISRM; other models appear only in release notes. The [supported radios list](supported-radios.html) brings those names together.
+Documentation trails the software. The English manual on the site is for 1.6.3, the comprehensive update guide targets 1.6.x, and the FAQ page has one answered question. FrSky also states no licence, price or support terms for the firmware. If you need a firmware that runs on several brands, read the [ETHOS vs EdgeTX comparison](ethos-vs-edgetx.html).
+
+## Pros and cons
+
+Pros:
+- Built by the maker of the radio, receivers and RF protocols
+- Internal and external RF modules at once, 24 channels each
+- Templates for airplanes, gliders, helicopters and multirotors
+- Suite handles firmware, RF module, Lua and receiver files
+- Over the air receiver updates for TD, TW and ACCESS receivers
+- Frequent releases with public notes on GitHub
+Cons:
+- Runs on FrSky transmitters only
+- Manual and update guide still describe version 1.6
+- FAQ page is mostly placeholders
+- No published licence, price or support terms
+- Newest releases are labelled for early adopters
+
+
+## FAQ
+
+**Is FrSky ETHOS good?**
+
+On FrSky's documentation it is a complete radio OS: four model type templates, two RF modules at 24 channels each, Lua and telemetry call outs. It scores 7.9 out of 10 here, with points lost for documentation that lags the firmware and for running on FrSky radios only.
+
+**Is ETHOS better than OpenTX?**
+
+FrSky's ETHOS pages do not compare it with OpenTX. The practical point is hardware: newer FrSky radios such as the X20, X18 and X14 families are built for ETHOS, and EdgeTX, the active OpenTX fork, does not list them.
+
+**Does ETHOS support helicopters?**
+
+Yes. FrSky lists helicopter as one of four model categories, alongside airplane, glider and quadcopter, each with its own mixers.
+
+**How often is ETHOS updated?**
+
+FrSky publishes releases on GitHub. The 26.2.0 line had nine release candidates between 16 October and 6 November 2026, and 26.1.2 was released on 10 September.
+
+**Can ETHOS use two RF modules at once?**
+
+Yes. FrSky states that the internal module and a module in the external bay can run at the same time, with 24 channels each.
+
+## Sources
+
+- [ETHOS release notes on GitHub](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases)
+- [ETHOS 26.1.2 release notes](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases/latest)
+- [FrSky Comprehensive Firmware Update Guide (PDF)](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)
+
+
+---
+
+# How to update FrSky ETHOS firmware with FrSky Suite, step by step
+
+URL: https://ethos-suite.github.io/update-firmware.html
+Updated: 2026-11-07
+
+To update FrSky ETHOS firmware, connect the radio to the Suite, back up, write outdated components on the Stable branch, flash the RF module, then update receivers. This is FrSky's order, with its menu names.
+
+## Key facts
+
+- Tool: FrSky Suite (ETHOS Suite in the guide)
+- Cable: USB C data cable
+- Branch: Stable
+- Order: OS, RF module, receivers, sensors
+- Receivers: Over the air or S.Port
+- Checked: 2026-11-07
+
+To update ETHOS, connect the radio to FrSky Suite in Ethos Suite USB mode, back up in Model manager, then on the Ethos tab pick the Stable branch and the latest version and click the download icon next to WRITE OUTDATED COMPONENTS. Next flash the internal RF module from the RF Module tab, then update receivers over the air or through the S.Port, because RF module and receiver firmware are matched.
+
+## Before you update FrSky ETHOS firmware
+
+To update FrSky ETHOS firmware the vendor's way you need the desktop Suite, a USB C cable that carries data, and a charged radio. FrSky's comprehensive guide was written for ETHOS 1.6.x and RF 3.0.x with ETHOS Suite; FrSky Suite 2.x keeps the same jobs, though some labels may differ. If you have not installed it yet, get it from the [Suite download page](download.html).
+The guide treats the radio as four layers: the OS, the internal RF module, the receivers, and sensors and other peripherals. Update them in that order, and do not skip the backup.
+- Suite installed and current: it offers Go To Update when a new version exists
+- Radio powered on and connected by USB C
+- On the radio, USB mode set to Ethos Suite
+- Models backed up to a folder on the computer
+
+## Update the OS
+
+The full backup procedure, and the manual copy for when the Suite is not available, is on the page about how to [back up ETHOS models](backup-models.html).
+1. Connect: Launch the Suite, power on the radio and plug it in. Choose Ethos Suite in the USB mode window. If that window never appears, set SYSTEM, General, USB Mode Preselection to Not set.
+2. Check status: Open the Radio Information tab. It lists every item that is out of date.
+3. Back up: In Model manager, pick a backup location with the folder icon and click BACK UP. Tick Audio if you use custom sounds; it is off by default.
+4. Choose the build: Open the Ethos tab under Radio. Select the Stable branch and the latest version, then your display language and audio languages.
+5. Write: Click the download icon next to WRITE OUTDATED COMPONENTS. Wait for UPDATE SUCCESSFUL, then go back to Radio Information.
+
+## Flash the RF module
+
+The RF module runs the link between transmitter and receiver and has its own firmware. When it shows Out of date, click Manage internal module or open the RF Module tab, choose the newest entry in the Module firmware list, and click FLASH MODULE. Afterwards, Radio Information should show everything current.
+FrSky calls RF module and receiver firmware matched. Once the module moves to a new version, check every receiver you fly with and update those too, or the link may not work as expected.
+
+## Install or update Lua scripts
+
+Stabilized receivers and some peripherals need Lua scripts. The Lua library tab shows a Remote library of available scripts and, on the left, the Radio scripts already installed. Click INSTALL under a script to put it on the radio. StabilizerConfig is the one for ARCHER Plus (AP), TANDEM (TD) and TWIN (TW) stabilized receivers; original ARCHER and ACCST receivers are configured through Device Config, SxR, built into the OS.
+
+## Update receivers and sensors
+
+In Download center, open RECEIVERS, find your model and click DOWNLOAD. TD and TW downloads arrive as a zip with all firmware for that family. Unzip it and copy the files into a folder such as updates on the RADIO drive, which may appear as Removable Drive or USB Drive.
+1. Over the air (TD, TW and ACCESS receivers): the receiver must be registered and bound. Press SYS, open File Manager, select the file and choose FlashRX by int OTA. Power the receiver during Waiting for receiver, select it, confirm with ENTER.
+2. Wired: connect the receiver's S.Port to the radio's S.Port with the harness, with no other power on the receiver. Signal goes on the notched side, power in the middle. Select the file and choose Flash External Device, then confirm.
+3. Sensors such as FLVS or GPS have no over the air option; use the wired route. Receivers with programmable pins must use the dedicated Upgrade pins.
+If an RB35 or another device with a built in BEC answers Device not responding, the [troubleshooting page](troubleshooting.html) has the fix FrSky gives.
+
+## Manual flash without the Suite
+
+The wiki also documents a manual route for the X20, X20S, X18, X10 and X12S. Hold Enter while powering on to reach Bootloader, connect USB, copy the firmware as firmware.bin to the root of the SD card (the NAND drive on the X18), copy new audio and bitmap files, eject both drives and unplug. A progress bar runs; when it ends, power cycle the radio. Back up models and radio.bin first. Check the [supported radios list](supported-radios.html) for where each model stores these files.
+
+## FAQ
+
+**How do I update ETHOS firmware?**
+
+Connect the radio to FrSky Suite in Ethos Suite USB mode, back up in Model manager, then on the Ethos tab choose the Stable branch and latest version and click WRITE OUTDATED COMPONENTS. Wait for UPDATE SUCCESSFUL before unplugging.
+
+**Do I need to update the RF module after ETHOS?**
+
+Check Radio Information after the OS update. If the RF module shows Out of date, flash it from the RF Module tab. FrSky says RF module and receiver firmware are matched, so update receivers afterwards too.
+
+**Can I update a receiver without removing it from the model?**
+
+Yes for TD, TW and ACCESS receivers that are registered and bound: use FlashRX by int OTA from the radio's File Manager. Other receivers and sensors are flashed through the S.Port with a cable.
+
+**Should I pick the Stable or another branch?**
+
+FrSky's guide tells you to select the Stable branch and its latest version. Release candidates on GitHub carry an early adopters label and are meant for people who will report bugs.
+
+**Can I update ETHOS without the Suite?**
+
+Yes. Hold Enter while powering on to enter the bootloader, connect USB, copy firmware.bin to the SD card root (NAND on the X18), eject and unplug. The radio flashes itself and deletes firmware.bin afterwards.
+
+**The USB mode window does not appear. What now?**
+
+On the radio, go to SYSTEM, General and set USB Mode Preselection to Not set. Reconnect the cable and the choice window should appear.
+
+## Sources
+
+- [FrSky Comprehensive Firmware Update Guide (PDF)](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)
+- [ETHOS wiki: file storage and firmware flashing](https://github.com/FrSkyRC/ETHOS-Feedback-Community/wiki/Ethos-File-Storage-and-Firmware-Flashing)
+
+
+---
+
+# ETHOS backup: how to save and restore FrSky models and radio settings
+
+URL: https://ethos-suite.github.io/backup-models.html
+Updated: 2026-11-07
+
+An ETHOS backup is a copy of your model files and radio.bin on a computer. FrSky Suite makes it with one button in Model manager; without the Suite you copy the folders over USB.
+
+## Key facts
+
+- Suite tab: Model manager, BACK UP
+- Audio: Off by default, tick to include
+- Models: models folder, one subfolder per model
+- Settings: radio.bin
+- When: Before every firmware update
+- Checked: 2026-11-07
+
+To back up ETHOS, open Model manager in FrSky Suite, choose a backup location with the folder icon and click BACK UP, ticking Audio if you use custom sounds. Without the Suite, connect the radio by USB and copy the models folder and radio.bin from the SD card, or the NAND drive on an X18, to your computer. FrSky's guide says never to skip this step before an update.
+
+## Why an ETHOS backup comes first
+
+An ETHOS backup protects the hours that go into a model setup: mixes, flight modes, telemetry screens, trims and timers. FrSky's update guide marks the backup step as important and tells you not to skip it, and the wiki repeats the warning for the manual flash: copy model files and radio.bin to a computer before you write firmware.
+Two kinds of data matter. Model files hold each aircraft. The radio.bin file holds system settings such as calibration and preferences. Custom audio is a third, optional item that the Suite leaves out unless you ask for it.
+
+## Back up with FrSky Suite
+
+If you do not have the Suite yet, the [FrSky Suite download page](download.html) lists the Windows and macOS builds.
+1. Connect: Launch the Suite, power on the radio, connect a USB C data cable and choose Ethos Suite as the USB mode.
+2. Open Model manager: Click Model manager in the tabs on the left.
+3. Set the location: Click the folder icon and pick or create a folder, for example FrSky Backups inside Documents. It then shows as the Backup location.
+4. Run the backup: Click BACK UP. In Select components you want to back up, tick Audio if you have custom sound files.
+5. Check the folder: Open the folder on the computer and confirm the files are there before you update anything.
+
+## Manual backup over USB
+
+Every ETHOS radio exposes its storage as drives when connected over USB. The wiki documents where the files sit, and the layout depends on the radio.
+| Radio | Where models and radio.bin live |
+|---|---|
+| X20, X20S, X10E, X10 ISRM, X12 ISRM | SD card: models, radio.bin, audio, logs, scripts |
+| Horus radios | SD card only, including bitmaps |
+| X18 TANDEM | NAND drive; SD card is optional |
+Copy the whole models folder and radio.bin to your computer. Add audio, scripts and bitmaps/models if you have changed them. Logs and screenshots are worth keeping if you want the flight history.
+
+## Restoring models
+
+FrSky's guide covers making the backup but does not describe a restore button. Because the wiki documents where each file lives, putting a setup back is a copy in the other direction: connect the radio, copy the saved models folder and radio.bin back to the same place on the same drive, then eject and restart the radio.
+Restore onto the same OS version the backup came from where you can, or onto a newer one. If a model behaves oddly after a restore, check the [ETHOS troubleshooting notes](troubleshooting.html) and FrSky's GitHub issues for the version you are on.
+
+## When to back up
+
+Once the backup is safe, continue with the steps to [update ETHOS firmware](update-firmware.html).
+- Before every OS update and every RF module flash
+- Before a manual bootloader flash, which writes firmware.bin to the same card
+- After setting up a new model or changing mixes
+- Before formatting or replacing the SD card
+
+## FAQ
+
+**How do I back up models in ETHOS?**
+
+In FrSky Suite, open Model manager, set a backup location with the folder icon and click BACK UP. Without the Suite, copy the models folder and radio.bin from the radio's SD card, or NAND drive on an X18, over USB.
+
+**What is radio.bin in ETHOS?**
+
+FrSky's wiki describes radio.bin as the file holding the radio's system settings. It sits next to the models folder on the SD card, or on the NAND drive on the X18, and should be backed up with your models.
+
+**Does the Suite back up audio files?**
+
+Only if you ask. In the Select components you want to back up window, Audio is off by default; tick it to include custom sound files.
+
+**Where are ETHOS models stored?**
+
+In a models folder with one subfolder per model. On the X20, X10 and X12 families it is on the SD card; on the X18 it is on the internal NAND drive.
+
+**Can I restore an ETHOS backup to another radio?**
+
+FrSky does not document moving models between radio types. File locations differ between the X18 and other models, so check the destination radio's storage layout before copying.
+
+## Sources
+
+- [FrSky Comprehensive Firmware Update Guide (PDF)](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)
+- [ETHOS wiki: file storage and firmware flashing](https://github.com/FrSkyRC/ETHOS-Feedback-Community/wiki/Ethos-File-Storage-and-Firmware-Flashing)
+
+
+---
+
+# Which radios run FrSky ETHOS: supported transmitters and Suite requirements
+
+URL: https://ethos-suite.github.io/supported-radios.html
+Updated: 2026-11-07
+
+Which radios run FrSky ETHOS? FrSky's FAQ names the TANDEM and TWIN series and the Horus X10 and X12 with ISRM. Release notes name more models. Here is the full list from vendor pages, plus what the Suite needs.
+
+## Key facts
+
+- FAQ list: TANDEM, TWIN, Horus X10 and X12 ISRM
+- Release notes add: X20 PRO, X18RS, X14, X14RS, XERS, V15, VX10
+- Other brands: Not supported
+- Suite OS: Windows, macOS Intel and Apple silicon
+- Minimum OS: Not published
+- Checked: 2026-11-07
+
+FrSky says ETHOS runs on its TANDEM and TWIN series radios and on the Horus X10 and X12 series that have the built in ISRM RF module. The 2026 release notes also name the X20 PRO, X18RS, X14, X14RS, XERS, V15 and VX10. No radio from another brand is listed, and FrSky Suite runs on Windows and macOS with no published minimum versions.
+
+## Which radios run FrSky ETHOS
+
+Which radios run FrSky ETHOS is answered in one line of FrSky's FAQ: the Horus X10 and X12 series with the built in ISRM RF module, and the TANDEM and TWIN series. That is the only answered question on the FAQ page. The release notes and the wiki name individual models, which fills in the picture.
+| Radio | Family | Named in |
+|---|---|---|
+| X10, X10S with ISRM | Horus | FAQ, wiki |
+| X12S with ISRM | Horus | FAQ, wiki |
+| X20, X20S, X20 PRO, X20 AW | TANDEM | Wiki, 26.2.0 notes |
+| X18, X18S, X18RS | TANDEM | Wiki, 26.1.2 and 26.2.0 notes |
+| X10E | TANDEM | Wiki |
+| X14, X14S, X14RS | TWIN | 26.1.2 notes |
+| XERS | Not stated | 26.1.2 notes |
+| V15, VX10 | Not stated | 26.1.2 and 26.2.0 notes |
+Older FrSky radios such as the X9D or QX7 are not on any ETHOS list. They belong to the EdgeTX world, which our [ETHOS vs EdgeTX comparison](ethos-vs-edgetx.html) covers.
+
+## How storage differs between models
+
+The wiki splits ETHOS radios into three storage layouts, which matters when you back up or flash by hand. The X20, X20S, X10E and ISRM Horus radios keep system bitmaps on a flash drive and everything else on the SD card. Older Horus systems use only the SD card. The X18 TANDEM keeps models, audio, logs and scripts on an internal NAND drive, with the SD card optional.
+During a manual flash, firmware.bin goes to the root of the SD card on most models and to the root of the NAND drive on the X18. The steps to [update the firmware](update-firmware.html) cover both the Suite route and this one.
+
+## RF modules and receivers
+
+ETHOS radios carry an internal RF module and an external module bay, and FrSky states both can run together with 24 channels each. Release notes mention ACCST D16, ACCESS, TD and TW modes across the range, Multimodule sensor support, and mLRS with 32 channels in 26.2.0. Stabilized ARCHER Plus, TD and TW receivers are set up with the StabilizerConfig Lua script; original ARCHER and ACCST receivers use the built in Device Config.
+
+## Computer requirements for FrSky Suite
+
+FrSky does not publish a system requirements page. What its downloads and guides show is this:
+- Windows: FrSky Suite 2.0.2 installer, 142 MB
+- macOS on Intel: x64 disk image, 199 MB
+- macOS on Apple silicon: arm64 disk image, 202 MB
+- No Linux Suite build is listed; the simulator wiki mentions Windows and Linux consoles
+- A USB C data cable, not a charge only cable
+- An internet connection for update checks and downloads
+- The bootloader tool, DfuSe Demo 3.0.6, is a Windows program
+Minimum Windows and macOS versions are not stated anywhere on the vendor pages. The [Suite download page](download.html) has the current files.
+
+## FAQ
+
+**Does the FrSky X20 run ETHOS?**
+
+Yes. FrSky's wiki documents storage and flashing for the X20 and X20S, and the 26.2.0 release notes include fixes for the X20 PRO and X20 AW. The X20 belongs to the TANDEM series that the FAQ names.
+
+**Can I install ETHOS on an X9D or QX7?**
+
+FrSky's ETHOS pages do not list the X9D or QX7. Those radios appear on EdgeTX's supported list as community supported, with version 2.11 the last release for the X9D and the original QX7.
+
+**Does ETHOS run on the X10S Express?**
+
+FrSky's FAQ names the Horus X10 and X12 series with the built in ISRM RF module. The X10 Express is not named on FrSky's ETHOS pages.
+
+**What are the system requirements for FrSky Suite?**
+
+FrSky publishes builds for Windows and for macOS on Intel and Apple silicon, at 142 MB to 202 MB, but no minimum OS versions. You also need a USB C data cable and an internet connection for updates.
+
+**Does ETHOS work with ExpressLRS?**
+
+FrSky's ETHOS pages do not document ExpressLRS. The 26.2.0 release notes do mention mLRS with 32 channels and a function to inject CRSF frames in the simulator.
+
+## Sources
+
+- [ETHOS wiki: file storage and firmware flashing](https://github.com/FrSkyRC/ETHOS-Feedback-Community/wiki/Ethos-File-Storage-and-Firmware-Flashing)
+- [ETHOS release notes on GitHub](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases)
+- [ETHOS wiki: simulators](https://github.com/FrSkyRC/ETHOS-Feedback-Community/wiki/Ethos-simulators)
+
+
+---
+
+# ETHOS Suite not working? Fixes for common FrSky update and flashing errors
+
+URL: https://ethos-suite.github.io/troubleshooting.html
+Updated: 2026-11-07
+
+When ETHOS Suite is not working, the cause is usually a blocked installer, a missed update prompt, the wrong USB mode or a device that needs a different cable. These fixes come from FrSky's own guide and wiki.
+
+## Key facts
+
+- Blocked download: Keep, then Keep anyway
+- No update prompt: Suite Settings tab
+- Stalled update: Run as administrator
+- Radio not seen: USB Mode Preselection: Not set
+- Device not responding: Remove red wire on BEC devices
+- Checked: 2026-11-07
+
+Most ETHOS Suite problems have a fix in FrSky's update guide. Keep a blocked download, start the update from the Suite Settings tab if no prompt appears, run the Suite as administrator if it stalls, and set USB Mode Preselection to Not set if the radio never offers Ethos Suite mode. For Device not responding on an RB35, cut power back feed by removing the red wire from one end of the servo lead.
+
+## When ETHOS Suite is not working on your computer
+
+If ETHOS Suite is not working, start with the computer side. FrSky's guide lists three problems and their fixes, and each one is quick to rule out. Make sure the file came from FrSky's own site; the [Suite download page](download.html) links there.
+| Symptom | Fix from FrSky's guide |
+|---|---|
+| Browser blocks the Suite download (Windows) | Click the three dots next to the download, choose Keep, then Show more and Keep anyway |
+| Windows Defender stops the installer | Click More info, then Run anyway |
+| Mac blocks the app | Open System Settings, Security, and allow the app to run |
+| No new version pop up at launch | Check the internet connection, then start the update from the Suite Settings tab |
+| Very old Suite will not update | Uninstall it under Add or remove programs and install the current version |
+| Automatic update stalls (Windows) | Close the Suite, right click its icon, choose Run as administrator |
+
+## The Suite does not see the radio
+
+The radio has to be in the right USB mode. When you plug it in, a USB mode window should appear on the transmitter; choose Ethos Suite. If the window never shows, a mode has been preselected: go to SYSTEM, General and set USB Mode Preselection to Not set, then reconnect.
+Use a USB C cable that carries data. A charge only cable powers the radio but no drives or Suite connection appear. If drive windows open on the computer when you connect, you can close them; the Suite still works.
+
+## Receiver and sensor flashing errors
+
+The full receiver procedure is in the guide to [update ETHOS firmware](update-firmware.html).
+- Over the air flash never finds the receiver: it must be registered and bound to this radio, and you must power it up while the radio shows Waiting for receiver.
+- Wired flash does nothing: signal goes on the notched side of the radio's S.Port, power in the middle, ground on the other side. A reversed plug does no harm but will not work.
+- Receiver with programmable pins will not flash: a pin set to S.Port cannot be used; use the dedicated Upgrade pins.
+- Device not responding on an RB35 or other device with a built in BEC: power it through its own port and remove the red wire from one end of the male to male lead so power cannot back feed into the radio.
+- Sensors such as FLVS or GPS have no over the air option: flash them with the wired method.
+
+## A flash fails or the radio will not start
+
+The wiki gives a manual route that does not need the Suite. Hold Enter while powering on until Bootloader appears, connect USB, and two drives open on the computer. Copy the firmware as firmware.bin to the root of the SD card, or the NAND drive on an X18, eject both drives and unplug. The radio shows a progress bar and deletes firmware.bin when done; power cycle it afterwards.
+Release notes show this area is still being fixed: 26.1.2 addressed reports of radios shutting down during bootloader flashing, and 26.2.0 candidates speed up emergency recovery. Before any recovery attempt, keep your models safe as described on the page about how to [back up ETHOS models](backup-models.html).
+
+## Reporting a bug FrSky has not fixed
+
+FrSky collects bugs as GitHub issues in the ETHOS Feedback Community repository. Update to the latest version first, search open and closed issues, and if yours is new, give the firmware version, what you expected, the steps to reproduce and a screenshot or video. FrSky says it may not reply to every issue. The official site also runs a support ticket system for problems that are not firmware bugs.
+
+## FAQ
+
+**Why does ETHOS Suite not detect my radio?**
+
+Usually the radio is not in Ethos Suite USB mode or the cable is charge only. Set SYSTEM, General, USB Mode Preselection to Not set, reconnect with a USB C data cable and choose Ethos Suite when asked.
+
+**Why does the Suite update stall on Windows?**
+
+FrSky's guide says to close the Suite, right click its icon and choose Run as administrator, then continue the update. If the installed version is very old, uninstall it and install the current one.
+
+**What does Device not responding mean when flashing?**
+
+The radio cannot talk to the device on the S.Port. Check the plug orientation and use the Upgrade pins on receivers with programmable pins; for an RB35 or similar device with a BEC, remove the red wire from one end of the lead.
+
+**How do I recover a radio after a failed flash?**
+
+Hold Enter while powering on to enter the bootloader, connect USB, copy firmware.bin to the SD card root (NAND on the X18), eject and unplug. The radio flashes the file and deletes it when finished.
+
+**Where can I get help from FrSky?**
+
+Bugs go to GitHub issues in the ETHOS Feedback Community repository, with your firmware version and steps to reproduce. Other questions can go through the support ticket system on ethos.frsky-rc.com.
+
+## Sources
+
+- [FrSky Comprehensive Firmware Update Guide (PDF): troubleshooting table](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)
+- [ETHOS wiki: file storage and firmware flashing](https://github.com/FrSkyRC/ETHOS-Feedback-Community/wiki/Ethos-File-Storage-and-Firmware-Flashing)
+- [ETHOS 26.1.2 release notes](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases/latest)
+- [ETHOS Feedback Community repository README: reporting issues](https://github.com/FrSkyRC/ETHOS-Feedback-Community)
+
+
+---
+
+# ETHOS vs EdgeTX: which firmware fits your FrSky radio
+
+URL: https://ethos-suite.github.io/ethos-vs-edgetx.html
+Updated: 2026-11-07
+
+ETHOS vs EdgeTX is mostly a hardware question. ETHOS is FrSky's own OS for its newer radios; EdgeTX is an open source firmware for many brands, with older FrSky models on a community supported list.
+
+## Key facts
+
+- ETHOS by: FrSky
+- EdgeTX by: Open source project
+- EdgeTX version: 2.12.5
+- X20, X18, X14: ETHOS only
+- X10, X12S: Both, EdgeTX community supported
+- Checked: 2026-11-07
+
+Choose by radio. On FrSky's newer X20, X18 and X14 families, ETHOS is the only option, since EdgeTX does not list them. On older FrSky radios such as the X9D or QX7, EdgeTX is the option, and FrSky does not list ETHOS for them. The Horus X10 and X12S are the overlap: ETHOS needs the ISRM version, and EdgeTX supports them only through community developers.
+
+## ETHOS vs EdgeTX in one paragraph
+
+ETHOS vs EdgeTX is less a feature contest than a question of which radio you hold. ETHOS comes from FrSky, the company that makes the transmitter, the RF modules and the receivers. EdgeTX describes itself as open source transmitter firmware and lists RadioMaster, Jumper, FlySky and HelloRadioSky as official partners. Both offer full model setup, telemetry and Lua; where they differ is who builds them and which hardware they run on.
+
+## Side by side
+
+|  | ETHOS | EdgeTX |
+|---|---|---|
+| Developer | FrSky | EdgeTX project, open source |
+| Price | None published | None published, donations via OpenCollective |
+| Licence | Not stated | Open source; licence not stated on the home page |
+| Current version | 26.1.2, 26.2.0 in release candidates | 2.12.5 |
+| X20, X18, X14 families | Supported | Not listed |
+| Horus X10, X12S | ISRM versions supported | Community supported only |
+| X9D, QX7, X9 Lite | Not listed | Community supported; 2.11 is last for several |
+| Other brands | No | RadioMaster, Jumper, FlySky, HRS partners |
+| Desktop app | FrSky Suite (Windows, macOS) | Companion |
+| Lua | Yes | Yes, including LVGL widgets |
+
+## Where FrSky radios fall
+
+EdgeTX's supported radios page puts every FrSky model under a heading that says the EdgeTX team does not support it; development is by other people in the community. The models listed are the X9D family, X9E, X9 Lite, X10 and X10 Express, X12S and X12S ISRM, the X Lite range and the QX7 family, and version 2.11 is the last EdgeTX release for several of them, including the X9D, X9 Lite and original QX7.
+FrSky's own list for ETHOS starts where that one stops: TANDEM radios such as the X20 and X18, TWIN radios such as the X14, and the X10 and X12 with ISRM. The full set is on the [radios that run ETHOS](supported-radios.html) page. On an X10 or X12S with ISRM you have a choice; on anything newer you do not.
+
+## Receivers, stabilizers and updates
+
+Because FrSky builds ETHOS, its Suite also handles the FrSky parts around the radio: the internal RF module flash, receiver firmware in Download center, over the air updates for TD, TW and ACCESS receivers, and the StabilizerConfig script for ARCHER Plus, TD and TW stabilized receivers. If your fleet is FrSky receivers, that integration is the main reason to stay on ETHOS.
+EdgeTX leans the other way: broad protocol support and many radio brands. Its home page mentions that Companion can install the ExpressLRS Lua tool, which fits the RadioMaster and Jumper radios it partners with. Our [ETHOS review](review.html) covers the FrSky side in more detail.
+
+## Which to pick
+
+If ETHOS is your answer, the [FrSky Suite download page](download.html) is the starting point.
+- X20, X18, X14 or another TANDEM or TWIN radio: ETHOS, the only listed option
+- X10 or X12S with ISRM and a fleet of FrSky receivers: ETHOS, for the Suite's receiver and RF module tools
+- X10 or X12S and a preference for one firmware across brands: EdgeTX, knowing support is from the community
+- X9D, QX7 or X9 Lite: EdgeTX, with 2.11 as the last version for several of them
+- RadioMaster, Jumper or FlySky radio: EdgeTX
+
+## FAQ
+
+**Is ETHOS better than EdgeTX?**
+
+Neither wins outright; the radio decides. ETHOS is FrSky's own firmware with tight support for FrSky RF modules and receivers, while EdgeTX runs on many brands. Newer FrSky radios are listed only for ETHOS.
+
+**Can I install EdgeTX on a FrSky X20 or X18?**
+
+EdgeTX's supported radios page does not list the X20, X18 or X14. Its FrSky entries are older models, all marked as community supported only.
+
+**Can I switch my X10 from ETHOS to EdgeTX?**
+
+EdgeTX lists the X10, X10S and X12S, including ISRM versions of the X12S, as community supported only. Back up your ETHOS models first, since the two firmwares do not share a documented model format.
+
+**Which is free, ETHOS or EdgeTX?**
+
+Neither publishes a price. ETHOS downloads are on FrSky's site; EdgeTX is open source and takes donations through OpenCollective.
+
+**What is the EdgeTX equivalent of FrSky Suite?**
+
+EdgeTX's desktop program is called Companion. FrSky Suite plays that role for ETHOS and also flashes FrSky RF modules and fetches receiver firmware.
+
+## Sources
+
+- [EdgeTX official site](https://edgetx.org/)
+- [EdgeTX supported radios list](https://edgetx.org/supportedradios/)
+- [ETHOS release notes on GitHub](https://github.com/FrSkyRC/ETHOS-Feedback-Community/releases)
+- [FrSky Comprehensive Firmware Update Guide (PDF)](https://ethos.frsky-rc.com/wp-content/uploads/ETHOS%20Guide/FrSky%20Comprehensive%20Firmware%20Update%20Guide.pdf)

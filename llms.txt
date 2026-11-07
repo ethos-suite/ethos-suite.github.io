@@ -1,0 +1,21 @@
+# Transmitter Desk
+
+> An independent manual for FrSky's ETHOS radio firmware and its desktop Suite: which radios run it, how to update and back up a transmitter, and how it compares with EdgeTX. Facts from FrSky's own pages, checked 7 November 2026.
+
+Independent guides to ETHOS by Transmitter Desk. Facts come from the vendor's pages on the date shown on each page.
+
+## Do it
+- [ETHOS Suite download: FrSky Suite 2.0.2 and ETHOS firmware for Windows and Mac](https://ethos-suite.github.io/download.html): Where to download FrSky Suite 2.0.2 and ETHOS firmware: installer sizes, Windows and macOS builds, release branches and the first steps after install.
+- [How to update FrSky ETHOS firmware with FrSky Suite, step by step](https://ethos-suite.github.io/update-firmware.html): Update ETHOS firmware step by step: back up in Model manager, write outdated components, flash the RF module, then update receivers by OTA or S.Port.
+- [ETHOS backup: how to save and restore FrSky models and radio settings](https://ethos-suite.github.io/backup-models.html): Back up ETHOS models with the Suite Model manager or by copying the models folder and radio.bin over USB, and put them back after a flash.
+- [ETHOS Suite not working? Fixes for common FrSky update and flashing errors](https://ethos-suite.github.io/troubleshooting.html): Fixes from FrSky's guide: blocked Suite download, no update prompt, stalled update, radio not detected, Device not responding, and a failed flash.
+
+## Decide
+- [FrSky ETHOS review: a capable radio OS that only runs on FrSky hardware](https://ethos-suite.github.io/review.html): FrSky ETHOS reviewed from FrSky's docs and release notes: model types, 24 channel modules, Lua, Suite, update cadence, limits and a 7.9 score.
+- [Which radios run FrSky ETHOS: supported transmitters and Suite requirements](https://ethos-suite.github.io/supported-radios.html): Radios that run ETHOS per FrSky: TANDEM and TWIN series, Horus X10 and X12 with ISRM, plus targets named in 2026 release notes and Suite requirements.
+
+## Compare
+- [ETHOS vs EdgeTX: which firmware fits your FrSky radio](https://ethos-suite.github.io/ethos-vs-edgetx.html): ETHOS vs EdgeTX compared: who builds each, which FrSky radios each supports, companion apps, Lua, licence and what to pick for X10, X12, X18 or X20.
+
+## Full text
+- [llms-full.txt](https://ethos-suite.github.io/llms-full.txt): every guide on this site in plain markdown
