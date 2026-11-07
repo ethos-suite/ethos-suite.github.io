@@ -427,3 +427,6 @@ footer.slim .fbar{padding:14px 15px}
 .verdict li{margin:0 0 6px}
 .verdict .note{color:#aaa;font-size:15px}
 .verdict .btn{color:#fff}
+
+/* wide screens: hero keeps its 1430px layout, centred, dark background continues to both edges */
+.hero-home{margin-left:auto;margin-right:auto;box-shadow:0 0 0 100vmax #0a1014;clip-path:inset(0 -100vmax)}
